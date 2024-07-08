@@ -3,7 +3,6 @@ import React from "react";
 // Admin Imports
 import MainDashboard from "views/admin/default";
 import Profile from "views/admin/profile";
-import RTLDefault from "views/rtl/default";
 
 // Auth Imports
 import SignIn from "views/auth/SignIn";
@@ -11,15 +10,13 @@ import SignIn from "views/auth/SignIn";
 // Icon Imports
 import {
   MdHome,
-  MdOutlineShoppingCart,
-  MdBarChart,
   MdPerson,
   MdLock,
 } from "react-icons/md";
 
 const routes = [
   {
-    name: "Main Dashboard",
+    name: "Dashboard",
     layout: "/admin",
     path: "default",
     icon: <MdHome className="h-6 w-6" />,

@@ -8,7 +8,6 @@ const ProfileOverview = () => {
           <Banner />
         </div>
       </div>
-      {/* all project & ... */}
     </div>
   );
 };

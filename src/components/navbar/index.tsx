@@ -80,21 +80,11 @@ const Navbar = (props: {
                 <div className="flex h-full w-[85px] items-center justify-center rounded-xl bg-gradient-to-b from-brandLinear to-brand-500 py-4 text-2xl text-white">
                   <BsArrowBarUp />
                 </div>
-                <div className="ml-2 flex h-full w-full flex-col justify-center rounded-lg px-1 text-sm">
-                  <p className="mb-1 text-left text-base font-bold text-gray-900 dark:text-white">
-                    New Update: Horizon UI Dashboard PRO
-                  </p>
-                  <p className="font-base text-left text-xs text-gray-900 dark:text-white">
-                    A new update for your downloaded item is available!
-                  </p>
-                </div>
               </button>
             </div>
           }
           classNames={"py-2 top-4 -left-[230px] md:-left-[440px] w-max"}
-        />
-        {/* start Horizon PRO */}
-       
+        />       
         <div
           className="cursor-pointer text-gray-600"
           onClick={() => {
@@ -134,7 +124,7 @@ const Navbar = (props: {
               <div className="mt-3 h-px w-full bg-gray-200 dark:bg-white/20 " />
               <div className="mt-3 ml-4 flex flex-col">
                 <a
-                  href=" "
+                  href="/auth"
                   className="mt-3 text-sm font-medium text-red-500 hover:text-red-500"
                 >
                   Log Out
