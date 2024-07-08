@@ -1,16 +1,10 @@
-/* eslint-disable */
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import DashIcon from "components/icons/DashIcon";
-// chakra imports
 
 export const SidebarLinks = (props: { routes: RoutesType[] }): JSX.Element => {
-  // Chakra color mode
   let location = useLocation();
-
   const { routes } = props;
 
-  // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName: string) => {
     return location.pathname.includes(routeName);
   };

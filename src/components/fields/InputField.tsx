@@ -1,6 +1,3 @@
-// Custom components
-import React from "react";
-
 function InputField(props: {
   id: string;
   label: string;
