@@ -1,7 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "components/navbar/RTL";
-import Sidebar from "components/sidebar/RTL";
 import Footer from "components/footer/Footer";
 import routes from "routes";
 
@@ -58,14 +57,10 @@ export default function RTL() {
   document.documentElement.dir = "rtl";
   return (
     <div className="flex h-full w-full">
-      <Sidebar open={open} onClose={() => setOpen(false)} />
-      {/* Navbar & Main Content */}
       <div className="h-full w-full bg-lightPrimary dark:!bg-navy-900">
-        {/* Main Content */}
         <main
           className={`mx-[12px] h-full flex-none transition-all md:pe-2 xl:mr-[313px]`}
         >
-          {/* Routes */}
           <div className="h-full">
             <Navbar
               onOpenSidenav={() => setOpen(true)}

@@ -1,4 +1,3 @@
-import CardMenu from "components/card/CardMenu";
 import Checkbox from "components/checkbox";
 import { MdDragIndicator, MdCheckCircle } from "react-icons/md";
 import Card from "components/card";
@@ -16,7 +15,6 @@ const TaskCard = () => {
             Tasks
           </h4>
         </div>
-        <CardMenu />
       </div>
 
       {/* task content */}
