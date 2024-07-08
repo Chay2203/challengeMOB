@@ -1,3 +1,5 @@
+
+import Slide from "./admin_Components/Slide";
 import React from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "components/navbar";
@@ -74,22 +76,29 @@ export default function Admin(props: { [x: string]: any }) {
               secondary={getActiveNavbar(routes)}
               {...rest}
             />
-            <div className="pt-5s mx-auto mb-auto h-full min-h-[84vh] p-2 md:pr-2">
-              <Routes>
-                {getRoutes(routes)}
+            <div className="d_slides">
+            <Slide img_src={"https://appxcontent.kaxa.in/paid_course3/2024-07-07-0.07833836520330406.png"} challanges={20} week={7} />
+            <Slide img_src={"https://appxcontent.kaxa.in/paid_course3/2024-07-07-0.07833836520330406.png"} challanges={20} week={7} />
+            <Slide img_src={"https://appxcontent.kaxa.in/paid_course3/2024-07-07-0.07833836520330406.png"} challanges={20} week={7} />
+            <Slide img_src={"https://appxcontent.kaxa.in/paid_course3/2024-07-07-0.07833836520330406.png"} challanges={20} week={7} />
+            <Slide img_src={"https://appxcontent.kaxa.in/paid_course3/2024-07-07-0.07833836520330406.png"} challanges={20} week={7} />
+            <Slide img_src={"https://appxcontent.kaxa.in/paid_course3/2024-07-07-0.07833836520330406.png"} challanges={20} week={7} />
+            <Slide img_src={"https://appxcontent.kaxa.in/paid_course3/2024-07-07-0.07833836520330406.png"} challanges={20} week={7} />
+            <Slide img_src={"https://appxcontent.kaxa.in/paid_course3/2024-07-07-0.07833836520330406.png"} challanges={20} week={7} />
+            <Slide img_src={"https://appxcontent.kaxa.in/paid_course3/2024-07-07-0.07833836520330406.png"} challanges={20} week={7} />
+            <Slide img_src={"https://appxcontent.kaxa.in/paid_course3/2024-07-07-0.07833836520330406.png"} challanges={20} week={7} />
 
-                <Route
-                  path="/"
-                  element={<Navigate to="/admin/default" replace />}
-                />
-              </Routes>
             </div>
-            <div className="p-3">
+            <div  className="p-3 d_fot">
               <Footer />
             </div>
+ 
+
           </div>
         </main>
+        
       </div>
+      
     </div>
   );
 }

@@ -1,0 +1,29 @@
+.slide {
+    border-radius: 20px;
+    color: black;
+    border: 1px solid black;
+    margin: 20px;
+}
+.d_slides{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.d_fot{
+    position: relative;
+    bottom: 0px;
+}
+.slide_info{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding-left: 15px;
+}
+.button_comp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:10px ;
+}
