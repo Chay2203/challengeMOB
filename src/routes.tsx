@@ -1,13 +1,7 @@
-import React from "react";
-
-// Admin Imports
 import MainDashboard from "views/admin/default";
 import Profile from "views/admin/profile";
-
-// Auth Imports
 import SignIn from "views/auth/SignIn";
 
-// Icon Imports
 import {
   MdHome,
   MdPerson,
@@ -30,11 +24,13 @@ const routes = [
     component: <Profile />,
   },
   {
-    name: "Sign In",
+    name: "Login/Sign In",
     layout: "/auth",
     path: "sign-in",
     icon: <MdLock className="h-6 w-6" />,
     component: <SignIn />,
   },
+  
 ];
+
 export default routes;
