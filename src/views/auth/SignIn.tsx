@@ -75,59 +75,6 @@ export default function SignIn() {
           </a>
         </div>
       </div>
-
-      <div className="flex justify-center mt-8">
-        <div className="bg-gray-200 dark:bg-navy-700 rounded-md p-4">
-          <h5 className="text-lg font-semibold text-gray-700 dark:text-white mb-3">
-            Additional Features
-          </h5>
-          <ul className="list-disc ml-5">
-            <li className="text-base text-gray-600 dark:text-white">
-              Integration with third-party services.
-            </li>
-            <li className="text-base text-gray-600 dark:text-white">
-              Enhanced security measures.
-            </li>
-            <li className="text-base text-gray-600 dark:text-white">
-              User-friendly interface updates.
-            </li>
-          </ul>
-        </div>
-        <div className="ml-8 bg-lightPrimary dark:bg-navy-800 rounded-md p-4">
-          <h5 className="text-lg font-semibold text-navy-700 dark:text-white mb-3">
-            Support Options
-          </h5>
-          <ul className="list-disc ml-5">
-            <li className="text-base text-navy-700 dark:text-white">
-              24/7 customer support.
-            </li>
-            <li className="text-base text-navy-700 dark:text-white">
-              Comprehensive documentation.
-            </li>
-            <li className="text-base text-navy-700 dark:text-white">
-              Community forums for assistance.
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="flex justify-center mt-8">
-        <div className="bg-gray-200 dark:bg-navy-700 rounded-md p-4">
-          <h5 className="text-lg font-semibold text-gray-700 dark:text-white mb-3">
-            Privacy Policy
-          </h5>
-          <p className="text-base text-gray-600 dark:text-white">
-            Our commitment to protecting your privacy.
-          </p>
-        </div>
-        <div className="ml-8 bg-lightPrimary dark:bg-navy-800 rounded-md p-4">
-          <h5 className="text-lg font-semibold text-navy-700 dark:text-white mb-3">
-            Terms of Service
-          </h5>
-          <p className="text-base text-navy-700 dark:text-white">
-            Legal agreement details for using our services.
-          </p>
-        </div>
-      </div>
     </div>
   );
 }
