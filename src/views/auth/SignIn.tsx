@@ -1,8 +1,15 @@
 import InputField from "components/fields/InputField";
 import Checkbox from "components/checkbox";
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "context/AuthContext";
 import { useState } from "react";
 
 export default function SignIn() {
+  const navigate = useNavigate();
+  const { setLoggedIn, loggedIn } = useAuthContext();
+
+  if (loggedIn) navigate("/admin/default");
+
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Logging in");
@@ -16,6 +23,40 @@ export default function SignIn() {
       alert("Please enter a valid email address");
       return;
     }
+
+    handleGoogleLogin(email, password).then((res) => {
+      console.log(res);
+      if (res) {
+        console.log("Login Success!");
+        setLoggedIn(true);
+      }
+      localStorage.setItem("loggedIn", "true");
+      navigate("/");
+    });
+  };
+
+  const handleGoogleLogin = async (
+    email: string,
+    password: string
+  ): Promise<Boolean> => {
+    const response = await fetch("http://localhost:3000/user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: email,
+        password: password,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data.login) {
+      return true;
+    }
+
+    return false;
   };
 
   const validateEmail = (email: string): boolean => {

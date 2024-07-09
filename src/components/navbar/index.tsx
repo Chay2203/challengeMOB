@@ -18,6 +18,11 @@ const Navbar = (props: {
   const { onOpenSidenav, brandText } = props;
   const [darkmode, setDarkmode] = React.useState(false);
 
+  const handleLogout = () => {
+    localStorage.removeItem("loggedIn");
+    window.location.href = "/auth";
+  };
+
   return (
     <nav className="sticky top-4 z-40 flex flex-row flex-wrap items-center justify-between rounded-xl bg-white/10 p-2 backdrop-blur-xl dark:bg-[#0b14374d]">
       <div className="ml-[6px]">
@@ -45,7 +50,7 @@ const Navbar = (props: {
         >
           <FiAlignJustify className="h-5 w-5" />
         </span>
-        
+
         {/* <Dropdown
           button={
             <p className="cursor-pointer">
@@ -102,18 +107,18 @@ const Navbar = (props: {
             />
           }
           children={
-            <div className="flex h-28 w-56 flex-col justify-start rounded-[20px] bg-white bg-cover bg-no-repeat shadow-xl shadow-shadow-500 dark:!bg-navy-700 dark:text-white dark:shadow-none">
-              <div className="mt-3 ml-4">
+            <div className="flex h-14 w-56 flex-col items-center justify-start rounded-[20px] bg-white bg-cover bg-no-repeat shadow-xl shadow-shadow-500 dark:!bg-navy-700 dark:text-white dark:shadow-none">
+              {/* <div className="ml-4 mt-3">
                 <div className="flex items-center gap-2">
                   <p className="text-sm font-bold text-navy-700 dark:text-white">
                     👋 Hey, Harshith
                   </p>{" "}
                 </div>
               </div>
-              <div className="mt-3 h-px w-full bg-gray-200 dark:bg-white/20 " />
-              <div className="mt-3 ml-4 flex flex-col">
+              <div className="mt-3 h-px w-full bg-gray-200 dark:bg-white/20 " /> */}
+              <div className="ml-4 mt-3 flex cursor-pointer flex-col">
                 <a
-                  href="/auth"
+                  onClick={handleLogout}
                   className="mt-3 text-sm font-medium text-red-500 hover:text-red-500"
                 >
                   Log Out
