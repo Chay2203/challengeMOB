@@ -1,18 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import Card from "components/card";
 
-const Coursecard= (props: {
+const CourseCard = (props: {
   image: string;
   title: string;
   author: string;
   extra?: string;
+  yt_btn?: string;
+  doc_btn?: string;
+  onYouTubeClick: (url: string) => void;
 }) => {
-  const { title, author, image, extra } = props;
-  const navigate = useNavigate();
-
-  const handleViewContent = () => {
-    navigate('/course'); 
-  };
+  const { title, author, image, extra, yt_btn, doc_btn, onYouTubeClick } = props;
 
   return (
     <Card
@@ -23,7 +21,7 @@ const Coursecard= (props: {
           <img
             src={image}
             className="mb-5 h-full w-full rounded-md 3xl:h-full 3xl:w-full"
-            alt="title"
+            alt={title}
           />
         </div>
 
@@ -33,21 +31,21 @@ const Coursecard= (props: {
               {title}
             </p>
             <p className="mt-1 text-sm font-medium text-gray-600 md:mt-2">
-              By {author}
+              {author}
             </p>
           </div>
         </div>
 
         <div className="flex items-center justify-between">
-        <button
-        onClick={handleViewContent}
-        className="linear rounded-md bg-yellow-500 px-10 py-2 text-base font-medium text-black transition duration-200 hover:bg-yellow-600 active:bg-yellow-700 dark:bg-yellow-400 dark:hover:bg-yellow-300 dark:active:opacity-90"
-        >
-          Session
-        </button>
-
           <button
-            onClick={handleViewContent}
+            onClick={() => yt_btn && onYouTubeClick(yt_btn)}
+            className="linear rounded-md bg-yellow-500 px-10 py-2 text-base font-medium text-black transition duration-200 hover:bg-yellow-600 active:bg-yellow-700 dark:bg-yellow-400 dark:hover:bg-yellow-300 dark:active:opacity-90"
+          >
+            Session
+          </button>
+
+          <button 
+            onClick={() => doc_btn && window.open(doc_btn, '_blank')}
             className="linear rounded-md bg-brand-900 px-8 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90"
           >
             Assignment
@@ -58,4 +56,4 @@ const Coursecard= (props: {
   );
 };
 
-export default Coursecard;
+export default CourseCard;

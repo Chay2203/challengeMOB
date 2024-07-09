@@ -8,7 +8,7 @@ admin.use(express.json());
 const{courseSchema,course_daySchema}=require("../Schema/schema");
 
 admin.post("/courses", async function(req,res){
-    const { week, title, img_src, new_field } = req.body;
+    const { week, title, img_src, new_field} = req.body;
    const isInputs= courseSchema.safeParse(req.body);
    if(isInputs.success){
     try{
