@@ -3,11 +3,12 @@ const cors=require("cors");
 const express=require("express")
 const admin=express();
 admin.use(cors());
+
 admin.use(express.json());
 const{courseSchema,course_daySchema}=require("../Schema/schema");
 
 admin.post("/courses", async function(req,res){
-    const { week, title, no_challenges, img_src, new_field } = req.body;
+    const { week, title, img_src, new_field } = req.body;
    const isInputs= courseSchema.safeParse(req.body);
    if(isInputs.success){
     try{
@@ -36,7 +37,7 @@ admin.get("/courses", async function(req, res) {
         courseCollection.forEach(doc => {
             courses.push({ id: doc.id, ...doc.data() });
         });
-        res.json(courses);
+        res.json({courses});
     } catch (error) {
         console.error("Error fetching courses:", error);
         res.status(500).send("Error fetching data");
@@ -68,5 +69,5 @@ admin.get("/courses/week/:id", async function(req, res) {
     res.send(arr)
 });
 
-admin.listen(3000);
+admin.listen(3001);
 

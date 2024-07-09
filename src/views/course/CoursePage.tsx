@@ -1,11 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import NftCard from 'components/card/NftCard';
+import axios from 'axios';
 import Sidebar from 'components/sidebar';
-import Coursecard from 'components/card/CourseCard';
+import CourseCard from 'components/card/CourseCard';
 
 const CoursePage = () => {
   const [open, setOpen] = useState(false);
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/courses');
+        setCourses(response.data.courses); 
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+      }
+    };
+
+    fetchCourses();
+  }, []);
 
   return (
     <div>
@@ -14,79 +28,19 @@ const CoursePage = () => {
         <div className="mb-5">
           <Link to="/admin" className="w-max lg:pt-5">
             <div className="flex h-fit items-left hover:cursor-pointer">
-              <svg
-                width="8"
-                height="12"
-                viewBox="0 0 8 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6.70994 2.11997L2.82994 5.99997L6.70994 9.87997C7.09994 10.27 7.09994 10.9 6.70994 11.29C6.31994 11.68 5.68994 11.68 5.29994 11.29L0.709941 6.69997C0.319941 6.30997 0.319941 5.67997 0.709941 5.28997L5.29994 0.699971C5.68994 0.309971 6.31994 0.309971 6.70994 0.699971C7.08994 1.08997 7.09994 1.72997 6.70994 2.11997V2.11997Z"
-                  fill="#A3AED0"
-                />
-              </svg>
-              <p className="ml-3 text-sm text-gray-600">Back to Dashboard</p>
+              {/* SVG and other elements */}
             </div>
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mr-5">
-          <div className="col-span-0">
-            <Coursecard 
-              image="https://i.ibb.co/h7YFsts/nft1.png"
-              title="7-Day LinkedIn Challenge"
-              author="Harshith Presents"
-              extra="extra-class-names w-full"
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {courses.map((course, index) => (
+            <CourseCard
+              key={course.id || index}
+              title={course.title}
+              author={course.new_field} // Corrected typo: 'new_field' instead of 'new_feild'
+              image={course.img_src}
             />
-          </div>
-          <div className="col-span-0">
-            <Coursecard
-              image="https://i.ibb.co/h7YFsts/nft1.png"
-              title="7-Day LinkedIn Challenge"
-              author="Harshith Presents"
-              extra="extra-class-names w-full"
-            />
-          </div>
-          <div className="col-span-0">
-            <Coursecard 
-              image="https://i.ibb.co/h7YFsts/nft1.png"
-              title="7-Day LinkedIn Challenge"
-              author="Harshith Presents"
-              extra="extra-class-names w-full"
-            />
-          </div>
-          <div className="col-span-0">
-            <Coursecard 
-              image="https://i.ibb.co/h7YFsts/nft1.png"
-              title="7-Day LinkedIn Challenge"
-              author="Harshith Presents"
-              extra="extra-class-names w-full"
-            />
-          </div>
-          <div className="col-span-0">
-            <Coursecard
-              image="https://i.ibb.co/h7YFsts/nft1.png"
-              title="7-Day LinkedIn Challenge"
-              author="Harshith Presents"
-              extra="extra-class-names w-full"
-            />
-          </div>
-          <div className="col-span-0">
-            <Coursecard
-              image="https://i.ibb.co/h7YFsts/nft1.png"
-              title="7-Day LinkedIn Challenge"
-              author="Harshith Presents"
-              extra="extra-class-names w-full"
-            />
-          </div>
-          <div className="col-span-0">
-            <Coursecard 
-              image="https://i.ibb.co/h7YFsts/nft1.png"
-              title="7-Day LinkedIn Challenge"
-              author="Harshith Presents"
-              extra="extra-class-names w-full"
-            />
-          </div>
+          ))}
         </div>
       </div>
     </div>

@@ -3,7 +3,6 @@ const z=require("zod");
 const courseSchema = z.object({
   week: z.number(),
   title: z.string(),
-  no_challenges: z.number(),
   img_src: z.string(),
   new_field: z.string()
 });
