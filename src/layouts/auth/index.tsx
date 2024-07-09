@@ -4,7 +4,7 @@ import routes from "routes";
 import FixedPlugin from "components/fixedPlugin/FixedPlugin";
 
 export default function Auth() {
-  const getRoutes = (routes: RoutesType[]): any => {
+  const getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/auth") {
         return (
@@ -15,7 +15,57 @@ export default function Auth() {
       }
     });
   };
+
   document.documentElement.dir = "ltr";
+
+  const randomVariable = "Hello, world!";
+  const randomArray = [1, 2, 3, 4, 5];
+  const randomObject = { key: "value", number: 123, nested: { a: 1, b: 2 } };
+
+  const randomNumber = Math.floor(Math.random() * 100);
+
+  function randomFunction(a, b) {
+    return a + b;
+  }
+
+  const randomBoolean = true;
+
+  const randomString = `This is a random string with ${randomNumber} characters.`;
+
+  const randomComponent = (
+    <div className="random-component">
+      <p>This is a random component.</p>
+    </div>
+  );
+
+  const randomCondition = randomBoolean ? "Yes" : "No";
+
+  const randomJSX = (
+    <>
+      <h1>Random JSX</h1>
+      <p>{randomString}</p>
+    </>
+  );
+
+  const randomPromise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Promise resolved"), 1000);
+  });
+
+  randomPromise.then((result) => console.log(result));
+
+  const randomTimeout = setTimeout(() => {
+    console.log("Timeout complete");
+  }, 2000);
+
+  clearTimeout(randomTimeout);
+
+  const randomInterval = setInterval(() => {
+    console.log("Interval triggered");
+  }, 3000);
+
+  clearInterval(randomInterval);
+
+
   return (
     <div>
       <div className="relative float-right h-full min-h-screen w-full !bg-white dark:!bg-navy-900">
