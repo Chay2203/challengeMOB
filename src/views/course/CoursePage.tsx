@@ -12,7 +12,8 @@ const CoursePage = () => {
     const fetchCourses = async () => {
       try {
         const response = await axios.get('http://localhost:3001/courses');
-        setCourses(response.data.courses); 
+        const days=response.data.courses.sort((a: any, b: any) => a.week - b.week);
+        setCourses(days); 
       } catch (error) {
         console.error("Error fetching courses:", error);
       }
