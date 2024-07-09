@@ -45,7 +45,8 @@ const Navbar = (props: {
         >
           <FiAlignJustify className="h-5 w-5" />
         </span>
-        <Dropdown
+        
+        {/* <Dropdown
           button={
             <p className="cursor-pointer">
               <IoMdNotificationsOutline className="h-4 w-4 text-gray-600 dark:text-white" />
@@ -71,7 +72,8 @@ const Navbar = (props: {
             </div>
           }
           classNames={"py-2 top-4 -left-[230px] md:-left-[440px] w-max"}
-        />       
+        />   */}
+
         <div
           className="cursor-pointer text-gray-600"
           onClick={() => {
