@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import { BsArrowBarUp } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
-import { IoMdNotificationsOutline } from "react-icons/io";
+import {
+  IoMdNotificationsOutline,
+} from "react-icons/io";
 import avatar from "assets/img/avatars/avatar4.png";
 
 const Navbar = (props: {
@@ -60,6 +62,7 @@ const Navbar = (props: {
                   Mark all read
                 </p>
               </div>
+
               <button className="flex w-full items-center">
                 <div className="flex h-full w-[85px] items-center justify-center rounded-xl bg-gradient-to-b from-brandLinear to-brand-500 py-4 text-2xl text-white">
                   <BsArrowBarUp />
@@ -68,7 +71,7 @@ const Navbar = (props: {
             </div>
           }
           classNames={"py-2 top-4 -left-[230px] md:-left-[440px] w-max"}
-        />
+        />       
         <div
           className="cursor-pointer text-gray-600"
           onClick={() => {
@@ -102,7 +105,7 @@ const Navbar = (props: {
                 <div className="flex items-center gap-2">
                   <p className="text-sm font-bold text-navy-700 dark:text-white">
                     👋 Hey, Harshith
-                  </p>
+                  </p>{" "}
                 </div>
               </div>
               <div className="mt-3 h-px w-full bg-gray-200 dark:bg-white/20 " />
@@ -119,61 +122,6 @@ const Navbar = (props: {
           classNames={"py-2 top-8 -left-[180px] w-max"}
         />
       </div>
-      
-      {/* Additional lines start here */}
-      <div className="flex justify-center mt-8">
-        <div className="bg-gray-200 dark:bg-navy-700 rounded-md p-4">
-          <h5 className="text-lg font-semibold text-gray-700 dark:text-white mb-3">
-            Additional Features
-          </h5>
-          <ul className="list-disc ml-5">
-            <li className="text-base text-gray-600 dark:text-white">
-              Integration with third-party services.
-            </li>
-            <li className="text-base text-gray-600 dark:text-white">
-              Enhanced security measures.
-            </li>
-            <li className="text-base text-gray-600 dark:text-white">
-              User-friendly interface updates.
-            </li>
-          </ul>
-        </div>
-        <div className="ml-8 bg-lightPrimary dark:bg-navy-800 rounded-md p-4">
-          <h5 className="text-lg font-semibold text-navy-700 dark:text-white mb-3">
-            Support Options
-          </h5>
-          <ul className="list-disc ml-5">
-            <li className="text-base text-navy-700 dark:text-white">
-              24/7 customer support.
-            </li>
-            <li className="text-base text-navy-700 dark:text-white">
-              Comprehensive documentation.
-            </li>
-            <li className="text-base text-navy-700 dark:text-white">
-              Community forums for assistance.
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="flex justify-center mt-8">
-        <div className="bg-gray-200 dark:bg-navy-700 rounded-md p-4">
-          <h5 className="text-lg font-semibold text-gray-700 dark:text-white mb-3">
-            Privacy Policy
-          </h5>
-          <p className="text-base text-gray-600 dark:text-white">
-            Our commitment to protecting your privacy.
-          </p>
-        </div>
-        <div className="ml-8 bg-lightPrimary dark:bg-navy-800 rounded-md p-4">
-          <h5 className="text-lg font-semibold text-navy-700 dark:text-white mb-3">
-            Terms of Service
-          </h5>
-          <p className="text-base text-navy-700 dark:text-white">
-            Legal agreement details for using our services.
-          </p>
-        </div>
-      </div>
-      {/* Additional lines end here */}
     </nav>
   );
 };
