@@ -1,4 +1,3 @@
-import React from "react";
 import Checkbox from "components/checkbox";
 import { MdCheckCircle } from "react-icons/md";
 import Card from "components/card";
@@ -57,88 +56,6 @@ const TaskCard = () => {
             </p>
           </div>
         </div>
-        {/* Additional lines start here */}
-        <div className="mt-2 flex items-center justify-between p-2">
-          <div className="flex items-center justify-center gap-2">
-            <Checkbox />
-            <p className="text-base font-bold text-navy-700 dark:text-white">
-              Product Development
-            </p>
-          </div>
-        </div>
-        <div className="mt-2 flex items-center justify-between p-2">
-          <div className="flex items-center justify-center gap-2">
-            <Checkbox />
-            <p className="text-base font-bold text-navy-700 dark:text-white">
-              QA Testing
-            </p>
-          </div>
-        </div>
-        <div className="mt-2 flex items-center justify-between p-2">
-          <div className="flex items-center justify-center gap-2">
-            <Checkbox />
-            <p className="text-base font-bold text-navy-700 dark:text-white">
-              Marketing Campaign
-            </p>
-          </div>
-        </div>
-        <div className="mt-2 flex items-center justify-between p-2">
-          <div className="flex items-center justify-center gap-2">
-            <Checkbox />
-            <p className="text-base font-bold text-navy-700 dark:text-white">
-              Customer Support
-            </p>
-          </div>
-        </div>
-        <div className="mt-2 flex items-center justify-between p-2">
-          <div className="flex items-center justify-center gap-2">
-            <Checkbox />
-            <p className="text-base font-bold text-navy-700 dark:text-white">
-              Feature Enhancements
-            </p>
-          </div>
-        </div>
-        <div className="mt-2 flex items-center justify-between p-2">
-          <div className="flex items-center justify-center gap-2">
-            <Checkbox />
-            <p className="text-base font-bold text-navy-700 dark:text-white">
-              User Interface Updates
-            </p>
-          </div>
-        </div>
-        <div className="mt-2 flex items-center justify-between p-2">
-          <div className="flex items-center justify-center gap-2">
-            <Checkbox />
-            <p className="text-base font-bold text-navy-700 dark:text-white">
-              Backend Development
-            </p>
-          </div>
-        </div>
-        <div className="mt-2 flex items-center justify-between p-2">
-          <div className="flex items-center justify-center gap-2">
-            <Checkbox />
-            <p className="text-base font-bold text-navy-700 dark:text-white">
-              Frontend Optimization
-            </p>
-          </div>
-        </div>
-        <div className="mt-2 flex items-center justify-between p-2">
-          <div className="flex items-center justify-center gap-2">
-            <Checkbox />
-            <p className="text-base font-bold text-navy-700 dark:text-white">
-              Bug Fixes
-            </p>
-          </div>
-        </div>
-        <div className="mt-2 flex items-center justify-between p-2">
-          <div className="flex items-center justify-center gap-2">
-            <Checkbox />
-            <p className="text-base font-bold text-navy-700 dark:text-white">
-              Deployment Planning
-            </p>
-          </div>
-        </div>
-        {/* Additional lines end here */}
       </div>
     </Card>
   );
