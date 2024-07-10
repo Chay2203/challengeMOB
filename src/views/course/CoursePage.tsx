@@ -27,7 +27,7 @@ const CoursePage = () => {
 
   const handleYouTubeClick = (url: string) => {
     const videoId = url.split('v=')[1];
-    const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    const embedUrl = `https://www.youtube.com/watch?v=fAUpXxr-fz4`;
     setVideoUrl(embedUrl);
     setShowVideo(true);
     setTimeout(() => {
@@ -84,6 +84,23 @@ const CoursePage = () => {
             </button>
           </div>
         )}
+        <Link to="/admin" className="w-max lg:pt-5">
+            <div className="flex h-fit items-left hover:cursor-pointer pb-5">
+              <svg
+                width="8"
+                height="12"
+                viewBox="0 0 8 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.70994 2.11997L2.82994 5.99997L6.70994 9.87997C7.09994 10.27 7.09994 10.9 6.70994 11.29C6.31994 11.68 5.68994 11.68 5.29994 11.29L0.709941 6.69997C0.319941 6.30997 0.319941 5.67997 0.709941 5.28997L5.29994 0.699971C5.68994 0.309971 6.31994 0.309971 6.70994 0.699971C7.08994 1.08997 7.09994 1.72997 6.70994 2.11997V2.11997Z"
+                  fill="#A3AED0"
+                />
+              </svg>
+              <p className="ml-3 text-sm text-gray-600">Back to Dashboard</p>
+            </div>
+          </Link>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {courses.map((course, index) => (
             <div
@@ -95,7 +112,8 @@ const CoursePage = () => {
                 author={course.new_field}
                 image={course.img_src}
                 yt_btn='https://www.youtube.com/watch?v=rPluLsCdKZk'
-                doc_btn='https://docs.google.com/forms/d/e/1FAIpQLSelGQrxZc5xB462w0KEpnuqACAjvhJvqyTlALaV-CXc4pvUKw/viewform'
+                res_btn='https://season-client-1ac.notion.site/Pre-Requisite-Resources-3cc74ef010594665a67f74fdeb680a14?pvs=4'
+                doc_btn='https://forms.gle/CA4aGcsnXm9k26xX6'
                 onYouTubeClick={handleYouTubeClick}
                 isActive={index === 0}
               />
