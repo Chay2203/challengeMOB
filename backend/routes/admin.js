@@ -21,7 +21,6 @@ admin.post("/courses", async function(req,res){
     catch{
         res.send("db error")
     } 
-
    }
    else{
     res.send("wrong inputs")

@@ -36,21 +36,27 @@ const CourseCard = (props: {
           </div>
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
           <button
             onClick={() => yt_btn && onYouTubeClick(yt_btn)}
-            className="linear rounded-md bg-yellow-500 px-10 py-2 text-base font-medium text-black transition duration-200 hover:bg-yellow-600 active:bg-yellow-700 dark:bg-yellow-400 dark:hover:bg-yellow-300 dark:active:opacity-90"
+            className="linear rounded-md bg-yellow-500 px-4 sm:px-10 py-2 text-sm sm:text-base font-medium text-black transition duration-200 hover:bg-yellow-600 active:bg-yellow-700 dark:bg-yellow-400 dark:hover:bg-yellow-300 dark:active:opacity-90 w-full sm:w-auto"
           >
             Session
           </button>
 
           <button 
             onClick={() => doc_btn && window.open(doc_btn, '_blank')}
-            className="linear rounded-md bg-brand-900 px-8 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90"
+            className="linear rounded-md bg-brand-900 px-4 sm:px-8 py-2 text-sm sm:text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90 w-full sm:w-auto"
+          >
+            Resources
+          </button>
+        </div>
+        <button 
+            onClick={() => doc_btn && window.open(doc_btn, '_blank')}
+            className="linear mt-2 rounded-md bg-brand-900 px-4 sm:px-28 py-2 text-sm sm:text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90 w-full"
           >
             Assignment
           </button>
-        </div>
       </div>
     </Card>
   );
