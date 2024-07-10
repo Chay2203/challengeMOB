@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "components/card";
 
 const CourseCard = (props: {
@@ -9,13 +8,21 @@ const CourseCard = (props: {
   yt_btn?: string;
   doc_btn?: string;
   onYouTubeClick: (url: string) => void;
+  className?: string;
+  isActive: boolean; // Add isActive prop
 }) => {
-  const { title, author, image, extra, yt_btn, doc_btn, onYouTubeClick } = props;
+  const { title, author, image, extra, yt_btn, doc_btn, onYouTubeClick, className, isActive } = props;
+
+  const cardStyle = isActive
+    ? "flex flex-col w-full h-full !p-4 3xl:p-![18px] bg-white"
+    : "flex flex-col w-full h-full !p-4 3xl:p-![18px] bg-white opacity-50 pointer-events-none";
+
+  const buttonStyle = isActive
+    ? "linear rounded-md bg-yellow-500 px-4 sm:px-10 py-2 text-sm sm:text-base font-medium text-black transition duration-200 hover:bg-yellow-600 active:bg-yellow-700 dark:bg-yellow-400 dark:hover:bg-yellow-300 dark:active:opacity-90 w-full sm:w-auto"
+    : "linear rounded-md bg-gray-300 px-4 sm:px-10 py-2 text-sm sm:text-base font-medium text-gray-500 w-full sm:w-auto cursor-not-allowed";
 
   return (
-    <Card
-      extra={`flex flex-col w-full h-full !p-4 3xl:p-![18px] bg-white ${extra}`}
-    >
+    <Card extra={`${cardStyle} ${extra}`}>
       <div className="h-full w-full">
         <div className="relative w-full">
           <img
@@ -38,22 +45,25 @@ const CourseCard = (props: {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
           <button
-            onClick={() => yt_btn && onYouTubeClick(yt_btn)}
-            className="linear rounded-md bg-yellow-500 px-4 sm:px-10 py-2 text-sm sm:text-base font-medium text-black transition duration-200 hover:bg-yellow-600 active:bg-yellow-700 dark:bg-yellow-400 dark:hover:bg-yellow-300 dark:active:opacity-90 w-full sm:w-auto"
+            onClick={() => isActive && yt_btn && onYouTubeClick(yt_btn)}
+            className={buttonStyle}
+            disabled={!isActive}
           >
             Session
           </button>
 
           <button 
-            onClick={() => doc_btn && window.open(doc_btn, '_blank')}
-            className="linear rounded-md bg-brand-900 px-4 sm:px-8 py-2 text-sm sm:text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90 w-full sm:w-auto"
+            onClick={() => isActive && doc_btn && window.open(doc_btn, '_blank')}
+            className="linear mt-1 rounded-md bg-red-700 px-4 sm:px-15 py-2 text-sm sm:text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90 w-full"
+            disabled={!isActive}
           >
             Resources
           </button>
         </div>
         <button 
-            onClick={() => doc_btn && window.open(doc_btn, '_blank')}
+            onClick={() => isActive && doc_btn && window.open(doc_btn, '_blank')}
             className="linear mt-2 rounded-md bg-brand-900 px-4 sm:px-28 py-2 text-sm sm:text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90 w-full"
+            disabled={!isActive}
           >
             Assignment
           </button>

@@ -87,15 +87,20 @@ const CoursePage = () => {
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {courses.map((course, index) => (
-            <CourseCard
+            <div
               key={course.id || index}
-              title={course.title}
-              author={course.new_field}
-              image={course.img_src}
-              yt_btn='https://www.youtube.com/watch?v=rPluLsCdKZk'
-              doc_btn='https://docs.google.com/forms/d/e/1FAIpQLSelGQrxZc5xB462w0KEpnuqACAjvhJvqyTlALaV-CXc4pvUKw/viewform'
-              onYouTubeClick={handleYouTubeClick}
-            />
+              className={index !== 0 ? 'filter blur-sm pointer-events-none' : ''}
+            >
+              <CourseCard
+                title={course.title}
+                author={course.new_field}
+                image={course.img_src}
+                yt_btn='https://www.youtube.com/watch?v=rPluLsCdKZk'
+                doc_btn='https://docs.google.com/forms/d/e/1FAIpQLSelGQrxZc5xB462w0KEpnuqACAjvhJvqyTlALaV-CXc4pvUKw/viewform'
+                onYouTubeClick={handleYouTubeClick}
+                isActive={index === 0}
+              />
+            </div>
           ))}
         </div>
       </div>
