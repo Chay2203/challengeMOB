@@ -28,7 +28,7 @@ const CoursePage = () => {
 
   const handleYouTubeClick = (url: string) => {
     const videoId = url.split('v=')[1];
-    const embedUrl = `https://www.youtube.com/watch?v=fAUpXxr-fz4`;
+    const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
     setVideoUrl(embedUrl);
     setShowVideo(true);
     setTimeout(() => {
@@ -111,12 +111,13 @@ const CoursePage = () => {
               <CourseCard
               title={course.title}
               author={course.new_field}
-              image={nft}  // This is the correction
+              image={nft}  
               yt_btn='https://www.youtube.com/watch?v=fAUpXxr-fz4'
+              onYouTubeClick={handleYouTubeClick}
               res_btn='https://season-client-1ac.notion.site/Pre-Requisite-Resources-3cc74ef010594665a67f74fdeb680a14?pvs=4'
               doc_btn='https://forms.gle/CA4aGcsnXm9k26xX6'
-              onYouTubeClick={handleYouTubeClick}
               isActive={index === 0}
+              
             />
             </div>
           ))}
