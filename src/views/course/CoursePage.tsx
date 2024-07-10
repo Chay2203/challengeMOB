@@ -65,7 +65,7 @@ const CoursePage = () => {
               width="100%"
               height="100%"
               src={videoUrl}
-              frameBorder="0"
+              frameBorder="10"
               allow="autoplay; fullscreen"
               allowFullScreen
             ></iframe>
