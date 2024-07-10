@@ -44,7 +44,6 @@ const CoursePage = () => {
         <div className="mb-5">
           <Link to="/admin" className="w-max lg:pt-5">
             <div className="flex h-fit items-left hover:cursor-pointer">
-              {/* SVG and other elements */}
             </div>
           </Link>
         </div>
