@@ -7,6 +7,8 @@ import { useState } from "react";
 export default function SignIn() {
   const navigate = useNavigate();
   const { setLoggedIn, loggedIn } = useAuthContext();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   if (loggedIn) navigate("/admin/default");
 
@@ -30,6 +32,7 @@ export default function SignIn() {
         console.log("Login Success!");
         setLoggedIn(true);
       }
+      localStorage.setItem("email", email);
       localStorage.setItem("loggedIn", "true");
       navigate("/");
     });
@@ -66,9 +69,6 @@ export default function SignIn() {
 
     return false;
   };
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   return (
     <form
