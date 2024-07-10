@@ -54,7 +54,7 @@ const CourseCard = (props: {
 
           <button 
             onClick={() => isActive && doc_btn && window.open(doc_btn, '_blank')}
-            className="linear mt-1 rounded-md bg-red-700 px-4 sm:px-15 py-2 text-sm sm:text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90 w-full"
+            className="linear rounded-md bg-red-700 px-4 sm:px-15 py-2 text-sm sm:text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90 w-full"
             disabled={!isActive}
           >
             Resources
