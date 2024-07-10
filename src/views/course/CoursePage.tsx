@@ -11,11 +11,11 @@ const CoursePage = () => {
   const [showVideo, setShowVideo] = useState(false);
   const [videoUrl, setVideoUrl] = useState('');
   const videoRef = useRef(null);
-
+  // const[link,slink]=useState({});
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get('https://challangemob.onrender.com/courses');
+        const response = await axios.get('http://localhost:3000/courses');//change the url to the api endpoint
         const days = response.data.courses.sort((a: any, b: any) => a.week - b.week);
         setCourses(days); 
       } catch (error) {
@@ -103,24 +103,26 @@ const CoursePage = () => {
             </div>
           </Link>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {courses.map((course, index) => (
-            <div
-              key={course.id || index}
-              className={index !== 0 ? 'filter blur-sm pointer-events-none' : ''}
-            >
-              <CourseCard
-              title={course.title}
-              author={course.new_field}
-              image={nft}  
-              yt_btn='https://www.youtube.com/watch?v=fAUpXxr-fz4'
-              onYouTubeClick={handleYouTubeClick}
-              res_btn='https://season-client-1ac.notion.site/Pre-Requisite-Resources-3cc74ef010594665a67f74fdeb680a14?pvs=4'
-              doc_btn='https://forms.gle/CA4aGcsnXm9k26xX6'
-              isActive={index === 0}
-              
-            />
-            </div>
-          ))}
+        {courses.map((course, index) => {
+  let link = course.assests;
+  return (
+    <div
+      key={course.id || index}
+      className={index !== 0 ? 'filter blur-sm pointer-events-none' : ''}
+    >
+      <CourseCard
+        title={course.title}
+        author={course.new_field}
+        image={course.img_src}  
+        yt_btn={link.yt_src}
+        onYouTubeClick={handleYouTubeClick}
+        res_btn={link.res_src}
+        doc_btn={link.doc_src}
+        isActive={index <=2}
+      />
+    </div>
+  );
+})}
         </div>
       </div>
     </div>
