@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Sidebar from 'components/sidebar';
 import CourseCard from 'components/card/CourseCard';
+import nft from '../../assets/img/nfts/Nft2.png';
 
 const CoursePage = () => {
   const [open, setOpen] = useState(false);
@@ -108,15 +109,15 @@ const CoursePage = () => {
               className={index !== 0 ? 'filter blur-sm pointer-events-none' : ''}
             >
               <CourseCard
-                title={course.title}
-                author={course.new_field}
-                image={course.img_src}
-                yt_btn='https://www.youtube.com/watch?v=rPluLsCdKZk'
-                res_btn='https://season-client-1ac.notion.site/Pre-Requisite-Resources-3cc74ef010594665a67f74fdeb680a14?pvs=4'
-                doc_btn='https://forms.gle/CA4aGcsnXm9k26xX6'
-                onYouTubeClick={handleYouTubeClick}
-                isActive={index === 0}
-              />
+              title={course.title}
+              author={course.new_field}
+              image={nft}  // This is the correction
+              yt_btn='https://www.youtube.com/watch?v=fAUpXxr-fz4'
+              res_btn='https://season-client-1ac.notion.site/Pre-Requisite-Resources-3cc74ef010594665a67f74fdeb680a14?pvs=4'
+              doc_btn='https://forms.gle/CA4aGcsnXm9k26xX6'
+              onYouTubeClick={handleYouTubeClick}
+              isActive={index === 0}
+            />
             </div>
           ))}
         </div>
