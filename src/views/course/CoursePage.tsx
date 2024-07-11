@@ -28,7 +28,9 @@ const CoursePage = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get('https://challangemob.onrender.com/courses');
+        const response = await axios.get(
+          "https://challangemob.onrender.com/courses"
+        );
         const days: any = response.data.courses.sort((a: any, b: any) => a.week - b.week);
         setCourses(days);
         setlimt(days[0].limit);
