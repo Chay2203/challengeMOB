@@ -3,7 +3,19 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Sidebar from 'components/sidebar';
 import CourseCard from 'components/card/CourseCard';
-import nft from '../../assets/img/nfts/Nft2.png';
+interface Course {
+  id?: number;
+  title: string;
+  new_field: string;
+  img_src: string;
+  week: number;
+
+  assests: {
+    yt_src: string;
+    res_src: string;
+    doc_src: string;
+  };
+}
 
 const CoursePage = () => {
   const [open, setOpen] = useState(false);
@@ -11,24 +23,24 @@ const CoursePage = () => {
   const [showVideo, setShowVideo] = useState(false);
   const [videoUrl, setVideoUrl] = useState('');
   const videoRef = useRef(null);
-  // const[link,slink]=useState({});
+  const[limit,setlimt]=useState(0);
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/courses');//change the url to the api endpoint
-        const days = response.data.courses.sort((a: any, b: any) => a.week - b.week);
-        setCourses(days); 
+        const response = await axios.get('https://challangemob.onrender.com/courses');
+        const days: any = response.data.courses.sort((a: any, b: any) => a.week - b.week);
+        setCourses(days);
+        setlimt(days[0].limit);
       } catch (error) {
         console.error("Error fetching courses:", error);
       }
     };
-
     fetchCourses();
   }, []);
 
   const handleYouTubeClick = (url: string) => {
     const videoId = url.split('v=')[1];
-    const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    const embedUrl = "https://www.youtube.com/embed/${videoId}?autoplay=1";
     setVideoUrl(embedUrl);
     setShowVideo(true);
     setTimeout(() => {
@@ -45,6 +57,19 @@ const CoursePage = () => {
         <div className="mb-5">
           <Link to="/admin" className="w-max lg:pt-5">
             <div className="flex h-fit items-left hover:cursor-pointer">
+              <svg
+                width="8"
+                height="12"
+                viewBox="0 0 8 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.70994 2.11997L2.82994 5.99997L6.70994 9.87997C7.09994 10.27 7.09994 10.9 6.70994 11.29C6.31994 11.68 5.68994 11.68 5.29994 11.29L0.709941 6.69997C0.319941 6.30997 0.319941 5.67997 0.709941 5.28997L5.29994 0.699971C5.68994 0.309971 6.31994 0.309971 6.70994 0.699971C7.08994 1.08997 7.09994 1.72997 6.70994 2.11997V2.11997Z"
+                  fill="#A3AED0"
+                />
+              </svg>
+              <p className="ml-3 text-sm text-gray-600">Back to Dashboard</p>
             </div>
           </Link>
         </div>
@@ -65,7 +90,7 @@ const CoursePage = () => {
               width="100%"
               height="100%"
               src={videoUrl}
-              frameBorder="10"
+              frameBorder="0"
               allow="autoplay; fullscreen"
               allowFullScreen
             ></iframe>
@@ -85,40 +110,24 @@ const CoursePage = () => {
             </button>
           </div>
         )}
-        <Link to="/admin" className="w-max lg:pt-5">
-            <div className="flex h-fit items-left hover:cursor-pointer pb-5">
-              <svg
-                width="8"
-                height="12"
-                viewBox="0 0 8 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6.70994 2.11997L2.82994 5.99997L6.70994 9.87997C7.09994 10.27 7.09994 10.9 6.70994 11.29C6.31994 11.68 5.68994 11.68 5.29994 11.29L0.709941 6.69997C0.319941 6.30997 0.319941 5.67997 0.709941 5.28997L5.29994 0.699971C5.68994 0.309971 6.31994 0.309971 6.70994 0.699971C7.08994 1.08997 7.09994 1.72997 6.70994 2.11997V2.11997Z"
-                  fill="#A3AED0"
-                />
-              </svg>
-              <p className="ml-3 text-sm text-gray-600">Back to Dashboard</p>
-            </div>
-          </Link>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {courses.map((course, index) => {
-  let link = course.assests;
+  
+
   return (
     <div
       key={course.id || index}
-      className={index !== 0 ? 'filter blur-sm pointer-events-none' : ''}
+      className={index >= limit ? 'filter blur-sm pointer-events-none' : ''}
     >
       <CourseCard
         title={course.title}
         author={course.new_field}
         image={course.img_src}  
-        yt_btn={link.yt_src}
+        yt_btn={course.yt_src} 
         onYouTubeClick={handleYouTubeClick}
-        res_btn={link.res_src}
-        doc_btn={link.doc_src}
-        isActive={index <=2}
+        res_btn={course.res_src}
+        doc_btn={course.doc_src}
+        isActive={true}
       />
     </div>
   );
