@@ -54,10 +54,10 @@ const CoursePage = () => {
   return (
     <div>
       <Sidebar open={open} onClose={() => setOpen(false)} />
-      <div className="mt-5 ml-5">
+      <div className="ml-5 mt-5">
         <div className="mb-5">
-          <Link to="/admin" className="w-max lg:pt-5">
-            <div className="flex h-fit items-left hover:cursor-pointer">
+          <Link to="/" className="w-max lg:pt-5">
+            <div className="items-left flex h-fit hover:cursor-pointer">
               <svg
                 width="8"
                 height="12"
@@ -75,15 +75,15 @@ const CoursePage = () => {
           </Link>
         </div>
         {showVideo && (
-          <div 
+          <div
             style={{
-              position: 'fixed',
+              position: "fixed",
               top: 0,
               left: 0,
-              width: '100%',
-              height: '100%',
+              width: "100%",
+              height: "100%",
               zIndex: 9999,
-              backgroundColor: 'black',
+              backgroundColor: "black",
             }}
           >
             <iframe
@@ -95,45 +95,45 @@ const CoursePage = () => {
               allow="autoplay; fullscreen"
               allowFullScreen
             ></iframe>
-            <button 
+            <button
               onClick={() => setShowVideo(false)}
               style={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
+                position: "absolute",
+                top: "10px",
+                right: "10px",
                 zIndex: 10000,
-                background: 'white',
-                padding: '5px 10px',
-                borderRadius: '5px',
+                background: "white",
+                padding: "5px 10px",
+                borderRadius: "5px",
               }}
             >
               Close
             </button>
           </div>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {courses.map((course, index) => {
-  
-
-  return (
-    <div
-      key={course.id || index}
-      className={index >= limit ? 'filter blur-sm pointer-events-none' : ''}
-    >
-      <CourseCard
-        title={course.title}
-        author={course.new_field}
-        image={course.img_src}  
-        yt_btn={course.yt_src} 
-        onYouTubeClick={handleYouTubeClick}
-        res_btn={course.res_src}
-        doc_btn={course.doc_src}
-        isActive={true}
-        do_btn={course.do_src}
-      />
-    </div>
-  );
-})}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {courses.map((course, index) => {
+            return (
+              <div
+                key={course.id || index}
+                className={
+                  index >= limit ? "pointer-events-none blur-sm filter" : ""
+                }
+              >
+                <CourseCard
+                  title={course.title}
+                  author={course.new_field}
+                  image={course.img_src}
+                  yt_btn={course.yt_src}
+                  onYouTubeClick={handleYouTubeClick}
+                  res_btn={course.res_src}
+                  doc_btn={course.doc_src}
+                  isActive={true}
+                  do_btn={course.do_src}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

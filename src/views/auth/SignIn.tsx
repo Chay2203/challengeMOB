@@ -10,7 +10,7 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  if (loggedIn) navigate("/admin/default");
+  if (loggedIn) navigate("/");
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,12 +29,11 @@ export default function SignIn() {
     handleGoogleLogin(email, password).then((res) => {
       console.log(res);
       if (res) {
+        localStorage.setItem("email", email);
+        localStorage.setItem("loggedIn", "true");
         console.log("Login Success!");
         setLoggedIn(true);
       }
-      localStorage.setItem("email", email);
-      localStorage.setItem("loggedIn", "true");
-      navigate("/");
     });
   };
 

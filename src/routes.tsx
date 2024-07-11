@@ -10,8 +10,8 @@ import {
 const routes = [
   {
     name: "Dashboard",
-    layout: "/admin",
-    path: "default",
+    layout: "/",
+    path: "",
     icon: <MdHome className="h-6 w-6" />,
     component: <MainDashboard />,
   },
