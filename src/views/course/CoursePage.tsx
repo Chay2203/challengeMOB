@@ -53,7 +53,7 @@ const CoursePage = () => {
   return (
     <div>
       <Sidebar open={open} onClose={() => setOpen(false)} />
-      <div className="mt-5 ml-5">
+      <div className="ml-5 mt-5">
         <div className="mb-5">
           <Link to="/admin" className="w-max lg:pt-5">
             <div className="flex h-fit items-left hover:cursor-pointer">
@@ -71,18 +71,19 @@ const CoursePage = () => {
               </svg>
               <p className="ml-3 text-sm text-gray-600">Back to Dashboard</p>
             </div>
+            <div className="items-left flex h-fit hover:cursor-pointer"></div>
           </Link>
         </div>
         {showVideo && (
-          <div 
+          <div
             style={{
-              position: 'fixed',
+              position: "fixed",
               top: 0,
               left: 0,
-              width: '100%',
-              height: '100%',
+              width: "100%",
+              height: "100%",
               zIndex: 9999,
-              backgroundColor: 'black',
+              backgroundColor: "black",
             }}
           >
             <iframe
@@ -90,26 +91,27 @@ const CoursePage = () => {
               width="100%"
               height="100%"
               src={videoUrl}
-              frameBorder="0"
+              frameBorder="10"
               allow="autoplay; fullscreen"
               allowFullScreen
             ></iframe>
-            <button 
+            <button
               onClick={() => setShowVideo(false)}
               style={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
+                position: "absolute",
+                top: "10px",
+                right: "10px",
                 zIndex: 10000,
-                background: 'white',
-                padding: '5px 10px',
-                borderRadius: '5px',
+                background: "white",
+                padding: "5px 10px",
+                borderRadius: "5px",
               }}
             >
               Close
             </button>
           </div>
         )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {courses.map((course, index) => {
   
@@ -132,6 +134,43 @@ const CoursePage = () => {
     </div>
   );
 })}
+        <Link to="/admin" className="w-max lg:pt-5">
+          <div className="items-left flex h-fit pb-5 hover:cursor-pointer">
+            <svg
+              width="8"
+              height="12"
+              viewBox="0 0 8 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.70994 2.11997L2.82994 5.99997L6.70994 9.87997C7.09994 10.27 7.09994 10.9 6.70994 11.29C6.31994 11.68 5.68994 11.68 5.29994 11.29L0.709941 6.69997C0.319941 6.30997 0.319941 5.67997 0.709941 5.28997L5.29994 0.699971C5.68994 0.309971 6.31994 0.309971 6.70994 0.699971C7.08994 1.08997 7.09994 1.72997 6.70994 2.11997V2.11997Z"
+                fill="#A3AED0"
+              />
+            </svg>
+            <p className="ml-3 text-sm text-gray-600">Back to Dashboard</p>
+          </div>
+        </Link>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {courses.map((course, index) => (
+            <div
+              key={course.id || index}
+              className={
+                index !== 0 ? "pointer-events-none blur-sm filter" : ""
+              }
+            >
+              <CourseCard
+                title={course.title}
+                author={course.new_field}
+                image={nft}
+                yt_btn="https://www.youtube.com/watch?v=fAUpXxr-fz4"
+                onYouTubeClick={handleYouTubeClick}
+                res_btn="https://season-client-1ac.notion.site/Pre-Requisite-Resources-3cc74ef010594665a67f74fdeb680a14?pvs=4"
+                doc_btn="https://forms.gle/CA4aGcsnXm9k26xX6"
+                isActive={index === 0}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>

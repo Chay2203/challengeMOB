@@ -23,6 +23,21 @@ const Navbar = (props: {
     window.location.href = "/auth";
   };
 
+  const handleChangePassword = () => {
+    fetch("https://challangemob.onrender.com/forgotpass", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: localStorage.getItem("email") }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        alert("Password reset link sent to your email");
+      });
+  };
+
   return (
     <nav className="sticky top-4 z-40 flex flex-row flex-wrap items-center justify-between rounded-xl bg-white/10 p-2 backdrop-blur-xl dark:bg-[#0b14374d]">
       <div className="ml-[6px]">
@@ -107,7 +122,7 @@ const Navbar = (props: {
             />
           }
           children={
-            <div className="flex h-14 w-56 flex-col items-center justify-start rounded-[20px] bg-white bg-cover bg-no-repeat shadow-xl shadow-shadow-500 dark:!bg-navy-700 dark:text-white dark:shadow-none">
+            <div className="flex h-28 w-48 flex-col items-center justify-start rounded-[20px] bg-white bg-cover bg-no-repeat shadow-xl shadow-shadow-500 dark:!bg-navy-700 dark:text-white dark:shadow-none">
               {/* <div className="ml-4 mt-3">
                 <div className="flex items-center gap-2">
                   <p className="text-sm font-bold text-navy-700 dark:text-white">
@@ -117,6 +132,15 @@ const Navbar = (props: {
               </div>
               <div className="mt-3 h-px w-full bg-gray-200 dark:bg-white/20 " /> */}
               <div className="ml-4 mt-3 flex cursor-pointer flex-col">
+                <a
+                  onClick={handleChangePassword}
+                  className="mt-3 text-sm font-medium text-red-500 hover:text-red-500"
+                >
+                  Change password
+                </a>
+              </div>
+              <div className="mt-3 h-px w-full bg-gray-200 dark:bg-white/20 " />
+              <div className="ml-4 flex cursor-pointer flex-col">
                 <a
                   onClick={handleLogout}
                   className="mt-3 text-sm font-medium text-red-500 hover:text-red-500"
