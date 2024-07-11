@@ -69,7 +69,7 @@ const CourseCard = (props: {
         </button>
         {do_btn && (
           <button 
-            onClick={() => isActive && do_btn && onYouTubeClick(yt_btn) }
+            onClick={() => isActive && do_btn && onYouTubeClick(do_btn) }
             className="linear mt-2 rounded-md bg-gray-800 px-4 sm:px-28 py-2 text-sm sm:text-base font-medium text-white transition duration-200 hover:bg-gray-500 active:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600 dark:active:opacity-90 w-full"            
             disabled={!isActive}
           >
