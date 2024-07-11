@@ -9,7 +9,10 @@ const App = () => {
     <Routes>
       <Route path="auth/*" element={<AuthLayout />} />
       <Route path="/" element={loggedIn ? <AdminLayout /> : <AuthLayout />} />
-      <Route path="/course" element={<CoursePage />} />{" "}
+      <Route
+        path="/course"
+        element={loggedIn ? <CoursePage /> : <AuthLayout />}
+      />{" "}
       {/* Add the new route */}
     </Routes>
   );
