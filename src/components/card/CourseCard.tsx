@@ -8,12 +8,13 @@ const CourseCard = (props: {
   yt_btn?: string;
   res_btn?: string;
   doc_btn?: string;
+  do_btn?:string;
   onYouTubeClick: (url: string) => void;
   className?: string;
   isActive: boolean; 
 }) => {
 
-  const { title, author, image, extra, yt_btn, doc_btn, res_btn, onYouTubeClick, className, isActive } = props;
+  const { title, author, image, extra, yt_btn, doc_btn, res_btn, onYouTubeClick, className, isActive, do_btn } = props;
 
   const cardStyle = isActive
     ? "flex flex-col w-full h-full !p-4 3xl:p-![18px] bg-white"
@@ -60,12 +61,21 @@ const CourseCard = (props: {
           </button>
         </div>
         <button 
-            onClick={() => isActive && doc_btn && window.open(doc_btn, '_blank')}
-            className="linear mt-2 rounded-md bg-brand-900 px-4 sm:px-28 py-2 text-sm sm:text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90 w-full"
+          onClick={() => isActive && doc_btn && window.open(doc_btn, '_blank')}
+          className="linear mt-2 rounded-md bg-brand-900 px-4 sm:px-28 py-2 text-sm sm:text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90 w-full"
+          disabled={!isActive}
+        >
+          Assignment
+        </button>
+        {do_btn && (
+          <button 
+            onClick={() => isActive && do_btn && onYouTubeClick(yt_btn) }
+            className="linear mt-2 rounded-md bg-gray-800 px-4 sm:px-28 py-2 text-sm sm:text-base font-medium text-white transition duration-200 hover:bg-gray-500 active:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600 dark:active:opacity-90 w-full"            
             disabled={!isActive}
           >
-            Assignment
+            Doubts
           </button>
+        )}
       </div>
     </Card>
   );
