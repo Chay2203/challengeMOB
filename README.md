@@ -1,6 +1,4 @@
 # Let's create a README file for the ChallengeMob project
-
-readme_content = """
 # ChallengeMob
 
 ChallengeMob is a challenge-based platform designed to help users engage in activities that enhance their LinkedIn profiles. By participating in various challenges, users gain valuable experience, skills, and accomplishments that can be showcased on LinkedIn, helping them to grow their professional presence.
