@@ -3,14 +3,6 @@
 
 ChallengeMob is a challenge-based platform designed to help users engage in activities that enhance their LinkedIn profiles. By participating in various challenges, users gain valuable experience, skills, and accomplishments that can be showcased on LinkedIn, helping them to grow their professional presence.
 
-## Table of Contents
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## Features
 - **User Authentication**: Secure login and registration using JWT-based authentication, ensuring that only authorized users can access and participate in challenges.
 - **Challenges**: Users can participate in different challenges aimed at enhancing their professional profiles.
